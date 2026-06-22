@@ -1,0 +1,8 @@
+services:
+  ai-detector:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./app/uploads:/app/app/uploads
+      - ./app/reports:/app/app/reports

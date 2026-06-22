@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Detector / Intelligence Dashboard</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand"><span class="logo">◉</span><div><b>AI Detector</b><small>Intelligence Dashboard</small></div></div>
+      <nav>
+        <button class="nav active">Dashboard</button>
+        <button class="nav">Upload Archive</button>
+        <button class="nav">Recent Analyses</button>
+        <button class="nav">Search</button>
+        <button class="nav">Statistics</button>
+      </nav>
+      <div class="plan"><b>Free</b><span>до 100 MB · 5 анализов</span><b>Pro</b><span>AI Summary · Entity Graph · API</span></div>
+    </aside>
+    <main class="main">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Archive Risk Scanner</p>
+          <h1>Загрузи архив — получи карту данных, риски и важные файлы</h1>
+          <p class="muted">Локальный MVP: ZIP/TAR, поиск сущностей, классификация, Risk Score, граф связей, экспорт JSON/HTML.</p>
+        </div>
+        <div class="score-card">
+          <span>Demo Risk Score</span>
+          <strong id="demoScore">76</strong>
+          <small>/100</small>
+        </div>
+      </section>
+
+      <section class="upload-card">
+        <div class="drop" id="drop">
+          <input id="fileInput" type="file" accept=".zip,.tar,.gz,.tgz" />
+          <div class="drop-icon">⇪</div>
+          <b>Upload Archive</b>
+          <span>zip, tar, tar.gz, tgz</span>
+        </div>
+        <button id="scanBtn">Scan archive</button>
+        <div id="status" class="status">Готов к загрузке.</div>
+      </section>
+
+      <section class="grid">
+        <div class="panel wide">
+          <div class="panel-head"><h2>AI Summary</h2><span id="riskBadge" class="badge">No scan</span></div>
+          <p id="aiSummary" class="summary">После анализа здесь появится краткий отчёт: что найдено, какие файлы важны и что нужно проверить.</p>
+          <div class="actions" id="reportLinks"></div>
+        </div>
+        <div class="panel"><h2>Found entities</h2><div id="entities" class="stats"></div></div>
+        <div class="panel"><h2>Classification</h2><div id="classes" class="stats"></div></div>
+      </section>
+
+      <section class="grid two">
+        <div class="panel"><h2>Top risky files</h2><div id="files" class="file-list"></div></div>
+        <div class="panel"><h2>Entity Graph</h2><div id="graph" class="graph"></div></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head"><h2>Recent Analyses</h2><button id="refreshBtn" class="ghost">Refresh</button></div>
+        <div id="recent" class="recent"></div>
+      </section>
+    </main>
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>
